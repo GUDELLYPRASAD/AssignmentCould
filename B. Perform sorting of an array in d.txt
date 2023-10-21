@@ -1,0 +1,16 @@
+B. Perform sorting of an array in descending order.
+ANSWER:
+
+function sortDescending(arr) {
+  // Use the sort() method with a custom comparison function
+  arr.sort(function(a, b) {
+    return b - a; // For numeric arrays
+    // To sort strings in descending order: return b.localeCompare(a);
+  });
+
+  return arr;
+}
+
+const inputArray = [5, 2, 9, 1, 5, 6];
+const sortedArray = sortDescending(inputArray);
+console.log(sortedArray); // Output: [9, 6, 5, 5, 2, 1]

@@ -1,0 +1,25 @@
+A. Take a sentence as an input and reverse every word in that sentence. 
+a. Example - This is a sunny day > shiT si a ynnus yad
+
+ANSWER:
+function reverseWords(sentence) {
+  // Split the sentence into words
+  const words = sentence.split(' ');
+
+  // Reverse each word and store them in a new array
+  const reversedWords = words.map(word => {
+    // Reverse the word and preserve any non-alphabetical characters
+    const reversedWord = word.split('').reverse().join('');
+    const nonAlphaChars = word.match(/[^A-Za-z]+/g);
+    return nonAlphaChars ? nonAlphaChars.join('') + reversedWord : reversedWord;
+  });
+
+  // Join the reversed words to form the new sentence
+  const reversedSentence = reversedWords.join(' ');
+
+  return reversedSentence;
+}
+
+const inputSentence = "This is a sunny day";
+const reversedSentence = reverseWords(inputSentence);
+console.log(reversedSentence); // Output: "shiT si a ynnus yad"
